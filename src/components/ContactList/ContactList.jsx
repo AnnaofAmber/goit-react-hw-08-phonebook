@@ -2,7 +2,7 @@ import css from './ContactList.module.css';
 import { Contact } from 'components/Contact/Contact';
 
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { getContacts, getFilter } from 'redux/selectors';
+import { getContacts, getFilter } from 'redux/contacts/selectors';
 const onFilteredContacts = (contacts, filter) => {
   return contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
