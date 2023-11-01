@@ -12,7 +12,7 @@ import { Route, Routes } from 'react-router-dom'
 // import { useEffect } from 'react';
 // import { fetchContacts } from 'redux/contacts/operations';
 // import { Loader } from './Loader/Loader';
-
+import { Navigation } from "./Navigation/Navigation";
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -22,7 +22,7 @@ export const App = () => {
 
   return (
     <div>
-    {/* <Header /> */}
+      <Navigation/>
     <div>
       <Suspense>
         <Routes>
