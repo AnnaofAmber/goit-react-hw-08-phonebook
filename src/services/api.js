@@ -26,7 +26,7 @@ export const userLogout = async () => {
     return data
 }
 
-export const userCurrent = async () => {
+export const refreshUser = async () => {
     const {data} = await phoneBookInstance.get('/users/current')
     return data
 }
