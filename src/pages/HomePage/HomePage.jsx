@@ -9,7 +9,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
 
-export const HomePage = () =>{
+ const HomePage = () =>{
 
 
   const dispatch = useDispatch();
@@ -33,3 +33,5 @@ export const HomePage = () =>{
     </div>
     )
 }
+
+export default HomePage;
