@@ -15,6 +15,9 @@ import { Route, Routes } from 'react-router-dom'
 import { Navigation } from "./Navigation/Navigation";
 import { useDispatch } from "react-redux";
 import { refreshThunk } from "redux/auth/operations";
+import { RestrictedRoute } from "./RestrictedRoute";
+import PrivateRoute from "./PrivateRoute";
+
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -25,6 +28,7 @@ export const App = () => {
 useEffect(()=>{
   dispatch(refreshThunk())
 },[dispatch])
+
   return (
     <div>
       <Navigation/>
@@ -32,12 +36,33 @@ useEffect(()=>{
       <Suspense>
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/register" element={<RegisterPage/>} />
-          <Route path="/login" element={<LoginPage/>} />
-          <Route path="/contacts" element={<ContactsPage/>} />
+          <Route path="/register"  element={
+            <RestrictedRoute redirectTo="/contacts" component={<RegisterPage />} />
+          } />
+          <Route path="/login" element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />}/> }/>
+          <Route path="/contacts" element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />}/> } />
         </Routes>
       </Suspense>
     </div>
   </div>
   );
 };
+
+// return (
+//   <div>
+//     <Navigation/>
+//   <div>
+//     <Suspense>
+//       <Routes>
+//         <Route path="/" element={<HomePage/>} />
+//         <Route path="/register" element={<RestrictedRoute redirectTo="/contacts" component={<RegisterPage/>}/>} />
+//         <Route path="/login" element={<RestrictedRoute redirectTo="/contacts" component={<LoginPage/>}/>} />
+//         <Route path="/contacts" element={<PrivateRoute redirectTo="/login" component={<ContactsPage/>}/>} />
+//       </Routes>
+//     </Suspense>
+//   </div>
+// </div>
+// );
+// };
