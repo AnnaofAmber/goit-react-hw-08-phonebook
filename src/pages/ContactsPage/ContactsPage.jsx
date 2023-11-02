@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import css from './ContactsPage.module.css'
+import css from './ContactsPage.module.css';
 import { getError, getIsLoading } from 'redux/contacts/selectors';
 import { Loader } from 'components/Loader/Loader';
 import { ContactForm } from 'components/ContactForm/ContactForm';
@@ -9,27 +9,26 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
 
-const ContactsPage = () =>{
-
+const ContactsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-    return (
-        <div className={css.main}>
-        <h1 className={css.title}>Phonebook</h1>
-        {isLoading && !error && <Loader/>}
-        {!isLoading && <div className={css.content}>
-          <ContactForm />
+  return (
+    <div className={css.main}>
+      <h1 className={css.title}>Phonebook</h1>
+      {isLoading && !error && <Loader />}
+      <div className={css.content}>
+        <ContactForm />
         <Contacts title="Contacts">
           <Filter />
           <ContactList />
         </Contacts>
-        </div>}
       </div>
-    )
-}
+    </div>
+  );
+};
 
-export default ContactsPage
+export default ContactsPage;
