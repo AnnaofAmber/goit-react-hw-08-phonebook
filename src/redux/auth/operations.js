@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { refreshUser, setToken, userLogin, userRegister } from 'services/api';
+import { refreshUser, setToken, userLogin, userLogout, userRegister } from 'services/api';
 axios.defaults.baseURL = 'https://653927fee3b530c8d9e80563.mockapi.io'
 
 export const loginThunk = createAsyncThunk(
@@ -49,5 +49,18 @@ export const refreshThunk = createAsyncThunk(
 
 
 }
+    }
+)
+
+export const logoutThunk = createAsyncThunk(
+    "auth/logout", async(_, thunkAPI) => {
+        try{
+            const response = await userLogout()
+            console.log(response);
+            return
+        }
+        catch(error){
+            return thunkAPI.rejectWithValue(error.message)
+        }
     }
 )
