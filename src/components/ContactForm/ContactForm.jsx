@@ -5,6 +5,7 @@ import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { getContacts } from 'redux/contacts/selectors';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -63,7 +64,8 @@ export const ContactForm = () => {
         required
       />
       <button className={css.btnAdd} type="submit">
-        Add contact
+        Add 
+        <AddCircleIcon/>
       </button>
     </form>
   );
