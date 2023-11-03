@@ -1,13 +1,13 @@
-import { useForm } from "react-hook-form"
-import { useDispatch } from "react-redux"
-import { loginThunk } from "redux/auth/operations"
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { loginThunk } from 'redux/auth/operations';
+
+import { NavLink } from 'react-router-dom';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -15,12 +15,15 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NavLink } from "react-router-dom";
-
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -33,20 +36,20 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-const LoginPage = () =>{
+const LoginPage = () => {
   const {
-      register,
-      handleSubmit,
-      reset,
-      // formState: { errors },
-    } = useForm()
+    register,
+    handleSubmit,
+    reset,
+    // formState: { errors },
+  } = useForm();
 
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    const onSubmit = (data) => {
-      dispatch(loginThunk(data)) 
-      reset()}
-  
+  const onSubmit = data => {
+    dispatch(loginThunk(data));
+    reset();
+  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -66,9 +69,13 @@ const dispatch = useDispatch()
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit(onSubmit)}  sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            onSubmit={handleSubmit(onSubmit)}
+            sx={{ mt: 1 }}
+          >
             <TextField
-            {...register("email", { required: true })}
+              {...register('email', { required: true })}
               margin="normal"
               required
               fullWidth
@@ -79,7 +86,7 @@ const dispatch = useDispatch()
               autoFocus
             />
             <TextField
-            {...register("password", {minLength:7})}
+              {...register('password', { minLength: 7 })}
               margin="normal"
               required
               fullWidth
@@ -99,12 +106,17 @@ const dispatch = useDispatch()
             </Button>
             <Grid container>
               <Grid item>
-              <NavLink to="/register" style={{
-                fontSize:"12px",
-                textDecoration: "none",
-                marginLeft: "180px",
-                color: 'teal'
-              }}>{"Don't have an account? Sign Up"}</NavLink>
+                <NavLink
+                  to="/register"
+                  style={{
+                    fontSize: '12px',
+                    textDecoration: 'none',
+                    marginLeft: '180px',
+                    color: 'teal',
+                  }}
+                >
+                  {"Don't have an account? Sign Up"}
+                </NavLink>
               </Grid>
             </Grid>
           </Box>
@@ -113,30 +125,6 @@ const dispatch = useDispatch()
       </Container>
     </ThemeProvider>
   );
-}
+};
 
-        // <form onSubmit={handleSubmit(onSubmit)}>
-        //     <label>
-        //         <span>Email:</span>
-        //     <input {...register("email", { required: true })} type="email"/>
-        //     {errors.email && <span>This field is required</span>}
-        //     </label>
-        //     <label>
-        //         <span>Password:</span>
-        //     <input  type="password" />
-        //     {errors.password && <span>This field is required</span>}
-        //     </label>
-          
-        //     <button type="submit">Sing in</button>
-        // </form>
-
-
-
-export default LoginPage
-
-
-
-
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
+export default LoginPage;

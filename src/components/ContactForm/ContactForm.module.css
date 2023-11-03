@@ -1,55 +1,55 @@
 .contactForm {
-    padding: 30px 15px 20px 15px;
-    display: flex;
-    flex-direction: column;
+  padding: 30px 15px 20px 15px;
+  display: flex;
+  flex-direction: column;
 
-    gap: 20px;
-    max-width: 250px;
-  }
-  
-  .label {
-    font-size: 20px;
-    font-weight: 700;
-  }
-  .input {
-    width: 236px;
-    height: 18px;
-    padding: 5px;
-    outline: 2px solid teal;
-    outline-offset: 2px;
-    border: none;
-    border-radius: 8px;
-  }
-  .input:focus {
-    outline: 2px solid rgba(199, 85, 43, 0.607);
-  }
-  
-  .btnAdd {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-transform: uppercase;
-    width: 100px;
-    height: 35px;
-    margin-left: 150px;
-    background-color: teal;
-    border: 0.5px solid teal;
-    border-radius: 8px;
-    color: rgb(255, 255, 255);
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  
-  .btnAdd:hover {
-    box-shadow: 5px 5px 12px -12px rgba(0, 0, 0, 0.678);
-    background-color: rgba(0, 128, 128, 0.843);
-    border: 0.5px solid teal;
-    color: rgb(255, 255, 255);
-  }
-  .btnAdd:focus {
-    box-shadow: 5px 5px 12px -12px rgba(0, 0, 0, 0.75);
-    background-color: rgba(0, 128, 128, 0.843);
-    border: 0.5px solid teal;
-    color: rgb(255, 255, 255);
-  }
+  gap: 20px;
+  max-width: 250px;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 700;
+}
+.input {
+  width: 236px;
+  height: 18px;
+  padding: 5px;
+  outline: 2px solid teal;
+  outline-offset: 2px;
+  border: none;
+  border-radius: 8px;
+}
+.input:focus {
+  outline: 2px solid rgba(199, 85, 43, 0.607);
+}
+
+.btnAdd {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-transform: uppercase;
+  width: 100px;
+  height: 35px;
+  margin-left: 150px;
+  background-color: teal;
+  border: 0.5px solid teal;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btnAdd:hover {
+  box-shadow: 5px 5px 12px -12px rgba(0, 0, 0, 0.678);
+  background-color: rgba(0, 128, 128, 0.843);
+  border: 0.5px solid teal;
+  color: rgb(255, 255, 255);
+}
+.btnAdd:focus {
+  box-shadow: 5px 5px 12px -12px rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 128, 128, 0.843);
+  border: 0.5px solid teal;
+  color: rgb(255, 255, 255);
+}

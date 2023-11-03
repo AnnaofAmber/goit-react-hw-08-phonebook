@@ -1,19 +1,16 @@
-
 .main {
-  
   padding-left: 100px;
   display: flex;
   flex-direction: column;
 }
 
 .title {
-
   margin: 0;
   text-transform: uppercase;
   font-size: 60px;
 }
 
-.content{
+.content {
   display: flex;
-gap: 350px;
+  gap: 350px;
 }

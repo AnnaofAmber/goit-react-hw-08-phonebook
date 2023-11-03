@@ -1,8 +1,3 @@
-// export const selectContacts = state=> state.contacts
-
-// export const selectIsLoading = state=> state.isLoading
-// export const selectError= state=> state.error
-
 import { createSelector } from '@reduxjs/toolkit';
 
 const selectPhonebook = state => state.phonebook;
@@ -19,8 +14,5 @@ export const selectContactsError = createSelector(
   selectPhonebook,
   phonebook => phonebook.error
 );
-// export const selectContactsFilterTerm = createSelector(
-//   selectPhonebook,
-//   phonebook => phonebook.filterTerm
-// );
-export const selectFilter = state=> state.filter
+
+export const selectFilter = state => state.filter;

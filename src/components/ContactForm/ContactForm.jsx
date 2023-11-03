@@ -1,37 +1,35 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux/es/hooks/useSelector';
-
 import css from './ContactForm.module.css';
+
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contacts/operations';
-import { selectContacts } from 'redux/contacts/selectors';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useForm } from 'react-hook-form';
 
-export const ContactForm = () => {
+import { addContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
 
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
+export const ContactForm = () => {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
   } = useForm();
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-
 
   const nameAlreadyExists = contact => {
     return contacts.some(({ name }) => name === contact);
   };
 
   const onSubmit = contact => {
-  if(Array.isArray(contacts)){
-  if (nameAlreadyExists(contact.name)) {
-    alert(`${contact.name} already exists!`);
-    return;
-  }
-}
+    if (Array.isArray(contacts)) {
+      if (nameAlreadyExists(contact.name)) {
+        alert(`${contact.name} already exists!`);
+        return;
+      }
+    }
     dispatch(addContact(contact));
     reset();
   };
@@ -41,7 +39,7 @@ export const ContactForm = () => {
         Name
       </label>
       <input
-      {...register('name', { required: true })}
+        {...register('name', { required: true })}
         className={css.input}
         id="name"
         type="text"
@@ -54,7 +52,7 @@ export const ContactForm = () => {
         Number
       </label>
       <input
-      {...register('number', { required: true })}
+        {...register('number', { required: true })}
         className={css.input}
         id="number"
         type="tel"
@@ -64,8 +62,8 @@ export const ContactForm = () => {
         required
       />
       <button className={css.btnAdd} type="submit">
-        Add 
-        <AddCircleIcon/>
+        Add
+        <AddCircleIcon />
       </button>
     </form>
   );
