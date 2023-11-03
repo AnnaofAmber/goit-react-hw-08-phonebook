@@ -22,7 +22,7 @@ const authConfig = {
 };
 
 export const rootReducer = combineReducers({
-  contacts: contactsReducer,
+  phonebook: contactsReducer,
   filter: filterReducer,
   auth: persistReducer(authConfig, authReducer),
 }); 

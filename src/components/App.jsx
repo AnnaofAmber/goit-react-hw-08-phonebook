@@ -13,10 +13,12 @@ import { Route, Routes } from 'react-router-dom'
 // import { fetchContacts } from 'redux/contacts/operations';
 // import { Loader } from './Loader/Loader';
 import { Navigation } from "./Navigation/Navigation";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { refreshThunk } from "redux/auth/operations";
 import { RestrictedRoute } from "./RestrictedRoute";
 import PrivateRoute from "./PrivateRoute";
+import { selectIsRefreshing } from "redux/auth/selectors";
+import { Loader } from "./Loader/Loader";
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
@@ -24,16 +26,19 @@ const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
 
 export const App = () => {
+  const isRefreshing = useSelector(selectIsRefreshing)
   const dispatch = useDispatch()
 useEffect(()=>{
   dispatch(refreshThunk())
 },[dispatch])
 
+
+
   return (
     <div>
       <Navigation/>
-    <div>
-      <Suspense>
+    
+{ isRefreshing? <Loader/>: <Suspense>
         <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/register"  element={
@@ -44,8 +49,7 @@ useEffect(()=>{
           <Route path="/contacts" element={
             <PrivateRoute redirectTo="/login" component={<ContactsPage />}/> } />
         </Routes>
-      </Suspense>
-    </div>
+      </Suspense>}
   </div>
   );
 };

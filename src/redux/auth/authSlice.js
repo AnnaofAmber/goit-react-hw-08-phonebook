@@ -15,7 +15,6 @@ const initialState = {
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
-    isLoading: false,
     error: null
 };
 
@@ -27,8 +26,7 @@ const authSlice = createSlice({
     builder
     .addCase(registerThunk.pending, handlePending)
     .addCase(registerThunk.fulfilled, (state, action)=> {
-      state.isLoading = false;
-      state.error = null;
+      state.isRefreshing = false;
       state.isLoggedIn = true
       state.token = action.payload.token
       state.user = action.payload.user
@@ -37,8 +35,7 @@ const authSlice = createSlice({
 
     .addCase(loginThunk.pending, handlePending)
     .addCase(loginThunk.fulfilled, (state, action)=> {
-      state.isLoading = false;
-      state.error = null;
+      state.isRefreshing = false;
       state.isLoggedIn = true
       state.token = action.payload.token
       state.user = action.payload.user
@@ -47,8 +44,7 @@ const authSlice = createSlice({
 
     .addCase(refreshThunk.pending, handlePending)
     .addCase(refreshThunk.fulfilled, (state, action)=> {
-      state.isLoading = false;
-      state.error = null;
+      state.isRefreshing = false;
       state.isLoggedIn = true
       state.user = action.payload
     })

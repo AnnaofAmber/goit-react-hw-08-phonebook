@@ -29,12 +29,11 @@ export const registerThunk = createAsyncThunk(
 
 export const refreshThunk = createAsyncThunk(
     "auth/refresh", async(_, thunkAPI) => {
+        const state = thunkAPI.getState()
+        const token = state.auth.token
         try{
-            const state = thunkAPI.getState()
-            const token = state.auth.token
             setToken(token)
             const response = await refreshUser()
-            console.log(response);
             return response
         }
         catch(error){
