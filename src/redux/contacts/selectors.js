@@ -1,5 +1,5 @@
 // export const selectContacts = state=> state.contacts
-// export const selectFilter = state=> state.filter
+
 // export const selectIsLoading = state=> state.isLoading
 // export const selectError= state=> state.error
 
@@ -19,7 +19,8 @@ export const selectContactsError = createSelector(
   selectPhonebook,
   phonebook => phonebook.error
 );
-export const selectContactsFilterTerm = createSelector(
-  selectPhonebook,
-  phonebook => phonebook.filterTerm
-);
+// export const selectContactsFilterTerm = createSelector(
+//   selectPhonebook,
+//   phonebook => phonebook.filterTerm
+// );
+export const selectFilter = state=> state.filter

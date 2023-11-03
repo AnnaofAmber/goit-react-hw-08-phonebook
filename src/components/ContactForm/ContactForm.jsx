@@ -18,7 +18,6 @@ export const ContactForm = () => {
   } = useForm();
 
   const dispatch = useDispatch();
-
   const contacts = useSelector(selectContacts);
 
 
@@ -27,9 +26,9 @@ export const ContactForm = () => {
   };
 
   const onSubmit = contact => {
-if(Array.isArray(contacts)){
-  if (nameAlreadyExists(contact)) {
-    alert(`${contact} already exists!`);
+  if(Array.isArray(contacts)){
+  if (nameAlreadyExists(contact.name)) {
+    alert(`${contact.name} already exists!`);
     return;
   }
 }
