@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
-import { getContacts } from 'redux/contacts/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export const ContactForm = () => {
@@ -13,7 +13,7 @@ export const ContactForm = () => {
 
   const dispatch = useDispatch();
 
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const reset = () => {
     setName('');

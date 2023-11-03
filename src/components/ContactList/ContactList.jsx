@@ -1,6 +1,6 @@
 import { Contact } from 'components/Contact/Contact';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { getContacts, getFilter } from 'redux/contacts/selectors';
+import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 
 import { styled } from '@mui/material/styles';
 import List from '@mui/material/List';
@@ -15,8 +15,8 @@ const onFilteredContacts = (contacts, filter) => {
 };
 
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
  let filteredContacts;
  if(contacts.length !== 0){
   filteredContacts = onFilteredContacts(contacts, filter);

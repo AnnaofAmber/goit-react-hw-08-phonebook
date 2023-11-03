@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactsPage.module.css';
-import { getError, getIsLoading } from 'redux/contacts/selectors';
+import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 import { Loader } from 'components/Loader/Loader';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Contacts } from 'components/Contacts/Contacts';
@@ -11,8 +11,8 @@ import { fetchContacts } from 'redux/contacts/operations';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
