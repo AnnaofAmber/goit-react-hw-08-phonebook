@@ -7,7 +7,6 @@ export const UserMenu = () =>{
     const dispatch = useDispatch();
     const authenticated = useSelector(selectIsLoggedIn);
     const user = useSelector(selectUser)
-    console.log(user);
     const onLogout = () => {
       dispatch(logoutThunk());
     };

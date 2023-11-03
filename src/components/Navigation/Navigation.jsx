@@ -9,22 +9,30 @@ export const Navigation = () => {
 
   return (
     <nav className={css['nav-container']}>
-      <NavLink className={css['nav-link']} to="/">
+      <NavLink className={({ isActive }) =>
+                `${css['nav-link']} ${isActive ? css.active : ''}`
+              } to="/">
         Home
       </NavLink>
       {authenticated ? (
         <>
-          <NavLink className={css['nav-link']} to="/contacts">
+          <NavLink className={({ isActive }) =>
+                `${css['nav-link']} ${isActive ? css.active : ''}`
+              }to="/contacts">
             Contacts
           </NavLink>{' '}
         </>
       ) : (
         <>
-          <NavLink className={css['nav-link']} to="/login">
+          <NavLink className={({ isActive }) =>
+                `${css['nav-link']} ${isActive ? css.active : ''}`
+              } to="/login">
             {' '}
             Login
           </NavLink>
-          <NavLink className={css['nav-link']} to="/register">
+          <NavLink className={({ isActive }) =>
+                `${css['nav-link']} ${isActive ? css.active : ''}`
+              } to="/register">
             Register
           </NavLink>
         </>
