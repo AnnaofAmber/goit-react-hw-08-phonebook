@@ -54,19 +54,3 @@ useEffect(()=>{
   );
 };
 
-// return (
-//   <div>
-//     <Navigation/>
-//   <div>
-//     <Suspense>
-//       <Routes>
-//         <Route path="/" element={<HomePage/>} />
-//         <Route path="/register" element={<RestrictedRoute redirectTo="/contacts" component={<RegisterPage/>}/>} />
-//         <Route path="/login" element={<RestrictedRoute redirectTo="/contacts" component={<LoginPage/>}/>} />
-//         <Route path="/contacts" element={<PrivateRoute redirectTo="/login" component={<ContactsPage/>}/>} />
-//       </Routes>
-//     </Suspense>
-//   </div>
-// </div>
-// );
-// };
