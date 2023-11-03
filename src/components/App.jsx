@@ -27,6 +27,7 @@ useEffect(()=>{
     
 { isRefreshing? <Loader/>: <Suspense>
         <Routes>
+        <Route path="*" element={<HomePage/>}></Route>
           <Route path="/" element={<HomePage/>} />
           <Route path="/register"  element={
             <RestrictedRoute redirectTo="/contacts" component={<RegisterPage />} />
