@@ -2,7 +2,6 @@ import { Contact } from 'components/Contact/Contact';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 
-import { styled } from '@mui/material/styles';
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 
