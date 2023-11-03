@@ -5,6 +5,7 @@
 }
 
 .item {
+  background-color: rgba(250, 235, 215, 0.267);
   height: 50px;
   font-size: 18px;
   display: flex;
@@ -12,4 +13,6 @@
   align-items: center;
   gap: 20px;
   border-bottom: 2px solid rgba(0, 128, 128, 0.4);
+
+  border-radius: 5px;
 }

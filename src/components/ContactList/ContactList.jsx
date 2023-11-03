@@ -20,15 +20,10 @@ export const ContactList = () => {
     filteredContacts = onFilteredContacts(contacts, filter);
   }
 
-  const Demo = styled('div')(({ theme }) => ({
-    backgroundColor: theme.palette.background.paper,
-  }));
-
   return (
     <>
       <Grid item xs={12} md={6} sx={{ mt: 4, mb: 2 }}>
-        <Demo>
-          <List>
+          <List bg="rgba(250, 235, 215, 0.267)">
             {Array.isArray(contacts) &&
               filteredContacts.map(contact => (
                 <Contact
@@ -39,7 +34,6 @@ export const ContactList = () => {
                 />
               ))}
           </List>
-        </Demo>
       </Grid>
     </>
   );
