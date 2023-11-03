@@ -1,3 +1,4 @@
+
 import { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +9,8 @@ import { RestrictedRoute } from "./RestrictedRoute";
 import {PrivateRoute} from "./PrivateRoute";
 import { Loader } from "./Loader/Loader";
 import { Navigation } from "./Navigation/Navigation";
+import { UserMenu } from "./UserMenu/UserMenu";
+import { Header } from "./Header/Header";
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
@@ -23,8 +26,7 @@ useEffect(()=>{
 
   return (
     <div>
-      <Navigation/>
-    
+      <Header/>
 { isRefreshing? <Loader/>: <Suspense>
         <Routes>
         <Route path="*" element={<HomePage/>}></Route>

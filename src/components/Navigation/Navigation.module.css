@@ -1,8 +1,5 @@
 .nav-container {
-  padding-top: 30px;
-  padding-right: 50px;
   display: flex;
-  justify-content: right;
   align-items: center;
   gap: 18px;
 }
@@ -24,31 +21,4 @@
   background-color: transparent;
   border: none;
 }
-.nav-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  text-transform: uppercase;
-  width: 100px;
-  height: 35px;
-  background-color: teal;
-  border: 0.5px solid teal;
-  border-radius: 8px;
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-}
 
-.nav-btn:hover {
-  box-shadow: 5px 5px 12px -12px rgba(0, 0, 0, 0.678);
-  background-color: rgba(0, 128, 128, 0.843);
-  border: 0.5px solid teal;
-  color: rgb(255, 255, 255);
-}
-.nav-btn:focus {
-  box-shadow: 5px 5px 12px -12px rgba(0, 0, 0, 0.75);
-  background-color: rgba(0, 128, 128, 0.843);
-  border: 0.5px solid teal;
-  color: rgb(255, 255, 255);
-}
